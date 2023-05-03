@@ -1,10 +1,11 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Fly : MonoBehaviour
+public class Fly : Spawnable
 {
     public float speed;
     public float rot_speed;
@@ -16,8 +17,7 @@ public class Fly : MonoBehaviour
     public float porportion;
 
     public Transform[] guns;
-    public GameObject bullet;
-    public float fireRate = 1;
+
     private float timeStampFire = 0;
   
     // Start is called before the first frame update
@@ -51,22 +51,18 @@ public class Fly : MonoBehaviour
         cam.transform.rotation = (moment* scaledSubtraction);//* Quaternion.Inverse(scaledSubtraction));
         transform.Translate(move * speed * Time.deltaTime);
 
-        if(Input.GetButton("Fire1") && Time.time > timeStampFire)
+        if(Input.GetButton("Fire1") )
         {
-            FireAllGuns();
-            timeStampFire = Time.time + fireRate;
+            SpawnStuff();
         }
        
     }
-
-   
-
-    void FireAllGuns()
+    public override void Spawn(Vector3 offset)
     {
         foreach (Transform gun in guns)
         {
-            Instantiate(bullet, gun.position, gun.rotation);
-
+            Instantiate(toSpawn, gun.position + offset, gun.rotation);
         }
     }
+  
 }

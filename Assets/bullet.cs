@@ -7,6 +7,7 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     public float bulletSpeed= 500;
     public float despawnTime = 5;
+    public int dmg = 1;  
     void Start()
     {
         
