@@ -19,6 +19,8 @@ public class Fly : Spawnable
     public Transform[] guns;
 
     private float timeStampFire = 0;
+
+    //public Transform centerpoint;
   
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,6 @@ public class Fly : Spawnable
         Debug.Log("moment" + moment);
         cam.transform.rotation = (moment* scaledSubtraction);//* Quaternion.Inverse(scaledSubtraction));
         transform.Translate(move * speed * Time.deltaTime);
-
         if(Input.GetButton("Fire1") )
         {
             SpawnStuff();

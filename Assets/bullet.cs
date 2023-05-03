@@ -16,7 +16,13 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.forward * bulletSpeed*Time.deltaTime);
+        movement();
+    }
+
+    public virtual void movement()
+    {
+        transform.Translate(transform.forward * bulletSpeed * Time.deltaTime);
         Destroy(gameObject, despawnTime);
     }
+
 }

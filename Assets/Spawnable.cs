@@ -14,6 +14,7 @@ public abstract class Spawnable : MonoBehaviour
     public Transform spawnPoint;
     public Vector2 spread =Vector2.zero;
     public Vector2 spreadOffset = Vector2.zero;
+    public bool armed = true;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public abstract class Spawnable : MonoBehaviour
 
     public virtual void SpawnStuff()
     {
-        if (Time.time > timeStampSpawn)
+        if (Time.time > timeStampSpawn && armed)
         {
             timeStampSpawn = Time.time + spawnRate;
             Vector3 randOffset = new Vector3((Random.value * spread.x) - spreadOffset.x,
