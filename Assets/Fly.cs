@@ -2,10 +2,11 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Fly : Spawnable
+public class Fly : Hitable
 {
     public float speed;
     public float rot_speed;
@@ -16,9 +17,14 @@ public class Fly : Spawnable
     public Camera cam;
     public float porportion;
 
-    public Transform[] guns;
+    public PlayerGun turrets;
+    public Vector2 horizontalLimit = new Vector2(-60, 60);
+    public Vector2 verticalLimit = new Vector2(-22, 120);
+
+
 
     private float timeStampFire = 0;
+
 
     //public Transform centerpoint;
   
@@ -52,18 +58,31 @@ public class Fly : Spawnable
         Debug.Log("moment" + moment);
         cam.transform.rotation = (moment* scaledSubtraction);//* Quaternion.Inverse(scaledSubtraction));
         transform.Translate(move * speed * Time.deltaTime);
-        if(Input.GetButton("Fire1") )
+        if (Input.GetButton("Fire1"))
         {
-            SpawnStuff();
+            FireLogic();
         }
-       
+        transform.position = new Vector3( Mathf.Clamp(transform.position.x, horizontalLimit.x, horizontalLimit.y),
+                                            Mathf.Clamp(transform.position.y, verticalLimit.x, verticalLimit.y),
+                                            0);
+
+
     }
-    public override void Spawn(Vector3 offset)
+    public virtual void FireLogic()
     {
-        foreach (Transform gun in guns)
-        {
-            Instantiate(toSpawn, gun.position + offset, gun.rotation);
-        }
+        
+        turrets.fire();
+        
     }
-  
+    
+    public override void Die()
+    {
+
+        Rigidbody rb = this.AddComponent<Rigidbody>();
+        rb.AddForce(-Vector3.up);
+        rb.AddTorque(transform.forward* rot_speed);
+        rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        base.Die();
+    }
+
 }

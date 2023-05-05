@@ -2,24 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Hitable
 {
+    public Spawnable[] weapons;
 
-    public int health = 1000;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnCollisionEnter(Collision collision)
+    public override void Die()
     {
-        
+        disableAllGuns();
+        base.Die();
     }
+
+    void disableAllGuns()
+    {
+        foreach(Spawnable weapon in weapons)
+        {
+            weapon.armed = false;
+        }
+    }
+    void armedAllGuns()
+    {
+        foreach (Spawnable weapon in weapons)
+        {
+            weapon.armed = true;
+        }
+    }
+
+
+
 }

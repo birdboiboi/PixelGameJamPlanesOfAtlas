@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0031975d68f09e4ea642893e594795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: -500
-  despawnTime: 5
-  dmg: 1
+  bulletSpeed: -100
+  despawnTime: 15
+  dmg: 0
+  stickDuration: 0
