@@ -8,7 +8,7 @@ public class FlyAnimationAudio : Fly
     public AudioClip shoot;
     public AudioClip die;
 
-
+    
     public override void FireLogic()
     {
         //audioSource.PlayOneShot(shoot);
@@ -18,6 +18,7 @@ public class FlyAnimationAudio : Fly
     {
         audioSource.volume = 1;
         audioSource.PlayOneShot(die);
+        anim.SetBool("RaptureDieOut", true);
         base.Die();
     }
 }

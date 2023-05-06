@@ -77,11 +77,12 @@ public class Fly : Hitable
     
     public override void Die()
     {
-
+        /*
         Rigidbody rb = this.AddComponent<Rigidbody>();
         rb.AddForce(-Vector3.up);
         rb.AddTorque(transform.forward* rot_speed);
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        */
         base.Die();
     }
 

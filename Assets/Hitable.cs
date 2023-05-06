@@ -8,6 +8,7 @@ public class Hitable : MonoBehaviour
     public int health = 100;
     public Animator anim;
     public AudioSource audioSource;
+    //public bool canFunction;
 
     void OnTriggerEnter(Collider other)
     {
