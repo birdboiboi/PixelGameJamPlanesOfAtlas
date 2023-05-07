@@ -1,0 +1,19 @@
+﻿title: Scene1
+tags:
+---
+<<expression Alice Neutral>>
+Alice:I was in my plane when I heard
+<<expression Harpy_Falcon Fidget>>
+Harpy the Falcon:UMM howdy?
+<<expression Harpy_Falcon Fidget>>
+Harpy the Falcon:I am a plane!
+<<expression Alice Happy>>
+Alice: I love planes
+<<expression Harpy_Falcon Happy>>
+Harpy the Falcon: me too!
+->bruh
+    Harpy the Falcon:lez do it
+    
+->nah
+    Harpy the Falcon:you bad
+===
