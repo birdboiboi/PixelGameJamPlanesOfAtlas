@@ -11,9 +11,17 @@ Harpy the Falcon:I am a plane!
 Alice: I love planes
 <<expression Harpy_Falcon Happy>>
 Harpy the Falcon: me too!
+<<<<<<< HEAD
+<<expression Harpy_Falcon Happy>>
+Harpy the Falcon: LOOK OUT !
+<<expression Harpy_Falcon Pout>>
+<<OpenScene GameManager 2>>
+
+=======
 ->bruh
     Harpy the Falcon:lez do it
     
 ->nah
     Harpy the Falcon:you bad
+>>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
 ===

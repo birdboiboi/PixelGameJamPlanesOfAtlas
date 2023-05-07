@@ -47,14 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNames:
   - Title Screen
+  - Dialog
   - AtlasBattle
   - Game Over
+  - Dialog 1
   - Win
+  musics:
+  - {fileID: 8300000, guid: a5bae291740ead241b84ff57921e8eb4, type: 3}
+  - {fileID: 8300000, guid: 27045f254c250da41b0159bccb46c08d, type: 3}
+  - {fileID: 8300000, guid: fb336aadd9777054d80884b1006d5c42, type: 3}
+  asorce: {fileID: 2948418705662571122}
   player: {fileID: 0}
   health: {fileID: 0}
   boss: {fileID: 0}
-  winScreen: 3
-  loseScreen: 2
+  winScreen: 4
+  loseScreen: 3
 --- !u!82 &2948418705662571122
 AudioSource:
   m_ObjectHideFlags: 0

@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
+using static Unity.VisualScripting.Member;
 
 public class GameManger : MonoBehaviour
 {
     [SerializeField]
-    static public int gameState = 1;
+    static public int gameState = 0;
     [SerializeField]
     static public int playerHealth = 100;
     [SerializeField]
@@ -17,6 +19,10 @@ public class GameManger : MonoBehaviour
     static public bool isPaused = false;
 
     public string[] SceneNames;
+    public AudioClip[] musics;
+
+    [SerializeField]
+    public AudioSource asorce;
 
     public Fly player;
     public TextMeshProUGUI health;
@@ -27,10 +33,38 @@ public class GameManger : MonoBehaviour
 
     private void Start()
     {
+<<<<<<< HEAD
+
+        switch (gameState)
+=======
         if (gameState == 1 && !isPaused)
+>>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
         {
-            player.health = playerHealth;
-            StartCoroutine(delayGamePlay());
+            case 0:
+                asorce = GetComponent<AudioSource>();
+                asorce.clip = musics[0];
+                asorce.Play();
+                break;
+            case 1:
+                asorce.clip = musics[1];
+                asorce.Play();
+                break;
+            case 2:
+                if (!isPaused)
+                {
+                    StartCoroutine(delayGamePlay());
+                    player.health = playerHealth;
+
+                }
+                break;
+            case 4:
+                asorce.clip = musics[2];
+                asorce.Play();
+                break;
+            case 5:
+                asorce.clip = musics[2];
+                asorce.Play();
+                break;
         }
 
     }
@@ -40,9 +74,13 @@ public class GameManger : MonoBehaviour
     {
         CheckRestart();
         CheckExit();
+<<<<<<< HEAD
+        Debug.Log(gameState);
+=======
+>>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
         switch (gameState)
         {
-            case 1:
+            case 2:
                 health.text = "Health: " + player.health + " " + boss.health;
                 playerHealth = player.health;
                 switch (boss.health)
@@ -65,7 +103,11 @@ public class GameManger : MonoBehaviour
                 }
                 break;
 
+<<<<<<< HEAD
+            case 1:
+=======
             case 2:
+>>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
 
                 break;
         }
@@ -83,18 +125,35 @@ public class GameManger : MonoBehaviour
         gameState = winlose;
         SceneManager.LoadScene(SceneNames[winlose]);
     }
+
+
+    public void OpenScene(int scene)
+    {
+        gameState = scene;
+        SceneManager.LoadScene(SceneNames[scene]);
+    }
+
+    [YarnCommand("OpenScene")]
+    public void YarnOpenScene(int scene)
+    {
+        OpenScene(scene);
+    }
     private void CheckRestart()
     {
         if (Input.GetKey(KeyCode.R))
         {
             playerHealth = playerMaxHealth;
+<<<<<<< HEAD
+            if (gameState == 2)
+=======
             if (gameState == 1)
+>>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
             {
                 player.anim.SetBool("Intro Scene", true);
             }
             else
             {
-                gameState = 1;
+                gameState = 2;
             }
             SceneManager.LoadScene(SceneNames[1]);
 

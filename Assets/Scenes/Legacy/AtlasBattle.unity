@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27b817238f0baa42b07329f93b0d22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 750
   anim: {fileID: 1500731546}
   audioSource: {fileID: 1500731548}
   weapons:

@@ -1,0 +1,20 @@
+﻿title: Scene2
+tags:
+---
+<<expression Alice Neutral>>
+Alice:What the Heck was that?
+<<expression Harpy_Falcon Fidget>>
+Harpy the Falcon:Uhhhh looked like atlas.
+<<expression Alice Confused>>
+Alice: Seriously? I thought we were in the Bermuda Triangle
+<<expression Harpy_Falcon Pout>>
+Harpy the Falcon: Hmph! you know the bermuda triangle is actually atlantis
+<<expression Alice Surprised>>
+Alice: Really?
+<<expression Harpy_Falcon Happy>>
+Harpy the Falcon: Oh yea thats why I turned from an F15 into an anime ms paint best girl waifu!
+<<expression Alice Surprised>>
+Alice: Wow! I gues Flight 19 mystery solved!
+<<OpenScene GameManager 5>>
+
+===
