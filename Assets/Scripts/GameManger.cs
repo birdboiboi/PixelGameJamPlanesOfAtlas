@@ -33,12 +33,9 @@ public class GameManger : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< HEAD
 
         switch (gameState)
-=======
-        if (gameState == 1 && !isPaused)
->>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
+
         {
             case 0:
                 asorce = GetComponent<AudioSource>();
@@ -74,10 +71,7 @@ public class GameManger : MonoBehaviour
     {
         CheckRestart();
         CheckExit();
-<<<<<<< HEAD
-        Debug.Log(gameState);
-=======
->>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
+
         switch (gameState)
         {
             case 2:
@@ -103,11 +97,9 @@ public class GameManger : MonoBehaviour
                 }
                 break;
 
-<<<<<<< HEAD
+
             case 1:
-=======
-            case 2:
->>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
+
 
                 break;
         }
@@ -143,11 +135,9 @@ public class GameManger : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             playerHealth = playerMaxHealth;
-<<<<<<< HEAD
+
             if (gameState == 2)
-=======
-            if (gameState == 1)
->>>>>>> af03e04a066e3eb109f397dbf1e1d8d0c7b132b6
+
             {
                 player.anim.SetBool("Intro Scene", true);
             }
